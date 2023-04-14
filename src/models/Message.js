@@ -3,24 +3,19 @@
 const { sequelize } = require('../utils/db');
 const { DataTypes } = require('sequelize');
 
-const User = sequelize.define('user', {
-  email: {
-    type: DataTypes.STRING,
-    unique: true,
-    allowNull: false,
-  },
+const Message = sequelize.define('message', {
   username: {
     type: DataTypes.STRING,
-    unique: true,
     allowNull: false,
   },
-  password: {
-    type: DataTypes.STRING,
+  chatId: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
-  activationToken: {
+  text: {
     type: DataTypes.STRING,
+    allowNull: false,
   },
 });
 
-module.exports = { User };
+module.exports = { Message };

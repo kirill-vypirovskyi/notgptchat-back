@@ -5,5 +5,7 @@ require('dotenv').config();
 const { sequelize } = require('./utils/db');
 
 require('./models/User.js');
+require('./models/Chat.js');
+require('./models/Message.js');
 
-sequelize.sync({ forse: true });
+sequelize.sync({ force: true });

@@ -21,4 +21,21 @@ const send = ({ email, subject, html }) => {
   });
 };
 
-module.exports = { send };
+const sendActivationLink = (email, token) => {
+  const link = `${process.env.CLIENT_URL}#/activate/${token}`;
+
+  send({
+    email,
+    subject: 'NotGPTChat account activation',
+    html: `
+    <h1>Click the link below to activate your account</h1>
+    <a href="${link}">${link}</a>
+    `,
+  });
+};
+
+const emailService = {
+  send, sendActivationLink,
+};
+
+module.exports = { emailService };
